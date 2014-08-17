@@ -36,7 +36,17 @@
       $scope.employees = response.data;
     });
 
+    $scope.init = function(employees){
+      $scope.employees = employees;
+    };
+
+    $http.get("/api/departments").then(function (response) {
+      $scope.departments = response.data;
+      console.log($scope.departments);
+    });
+
   });
+
 
 
 })();

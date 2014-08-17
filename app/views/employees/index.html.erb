@@ -1,10 +1,13 @@
 
-<div class="panel" ng-controller="employeesCtrl">
+<div class="panel" ng-controller="employeesCtrl" ng-init="init(<%= @employees.to_json %>)">
 
 <ul class="pager">
   <li class="previous"><a href="">&larr; Previous Page</a></li>
-  <li><input ng-model="deptQuery" placeholder="Department"></li>
-  <span class="label label-primary">Page: {{ page }}</span>
+  <li><input ng-model="deptQuery" placeholder="Department" list="departments"></li>
+    <datalist id="departments" >
+      <option ng-repeat="department in departments" value="{{ department.name }}">
+    </datalist>
+   <span class="label label-primary">Page: {{ page }}</span>
   <li class="next"><a href="">Next Page &rarr;</a></li>
 </ul>
 
